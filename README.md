@@ -2,10 +2,6 @@
 
 Hand–object **interaction timelines** from egocentric video: *when is the wearer using each object?*
 
-[![40-second demo](docs/assets/demo_static.png)](https://youtu.be/bWZrYyKokh0)
-
----
-
 ## Problem
 
 Egocentric AR glasses need to know **what the wearer is using right now**, not after the fact.
@@ -33,3 +29,9 @@ The student is what would run on-device. It is trained only from teacher labels 
 ![Student vs teacher (held-out)](docs/assets/timeline_student_val.png)
 
 *Student (filled) vs teacher (dashed) — held-out clip*
+
+## Demo
+
+**[Watch the 40-second demo on YouTube](https://youtu.be/bWZrYyKokh0)**
+
+[![Watch the 40-second demo on YouTube](docs/assets/demo_youtube.png)](https://youtu.be/bWZrYyKokh0)
