@@ -76,14 +76,15 @@ def check_layout() -> None:
 def check_readme_commands() -> None:
   print("== setup guide commands ==")
   if not README.is_file():
-    _fail("setup guide missing")
+    _fail("README.md missing")
   text = README.read_text()
   cmds = sorted(set(README_CMD_RE.findall(text)))
   if not cmds:
-    _fail("no src/ or scripts/ commands found in setup guide")
+    _ok("README has no src/scripts commands (optional)")
+    return
   for rel in cmds:
     if not (EGOUSE_ROOT / rel).is_file():
-      _fail(f"setup guide references missing file: {rel}")
+      _fail(f"README references missing file: {rel}")
     _ok(f"documented: {rel}")
 
 

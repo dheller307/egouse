@@ -17,6 +17,8 @@ download_links/
 
 # Run outputs (keep docs/assets/ in git)
 outputs/
+!docs/assets/
+!docs/assets/**
 *.pth
 !checkpoints/phase_d_r7/best.pt
 
