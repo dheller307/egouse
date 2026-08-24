@@ -1,0 +1,13 @@
+timestamp_ns,t_sec,hand_side,object_name,v2_interacting
+1000000000,0.0,left,mug_white,1
+1000000000,0.0,right,mug_white,0
+1033333333,0.033333333,left,mug_white,1
+1033333333,0.033333333,right,mug_white,0
+1066666666,0.066666666,left,mug_white,0
+1066666666,0.066666666,right,mug_white,0
+1000000000,0.0,left,keyboard,0
+1000000000,0.0,right,keyboard,0
+1033333333,0.033333333,left,keyboard,0
+1033333333,0.033333333,right,keyboard,0
+1066666666,0.066666666,left,keyboard,0
+1066666666,0.066666666,right,keyboard,0

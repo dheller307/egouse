@@ -1,0 +1,26 @@
+# Envs and third-party weights
+venv/
+venv_doh/
+venv_yoloe/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Licensed / large local data (never commit)
+hot3d_data/
+hot3d_repo/
+third_party/
+download_links/
+*.vrs
+
+# Run outputs (keep docs/assets/ in git)
+outputs/
+*.pth
+!checkpoints/phase_d_r7/best.pt
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
