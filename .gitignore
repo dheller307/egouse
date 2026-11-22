@@ -26,3 +26,17 @@ outputs/
 .DS_Store
 .idea/
 .vscode/
+
+# Medium-33 local configuration and generated outputs
+/egouse/*.local.json
+/egouse/config/*.local.json
+/*.local.json
+/.env
+/.env.*
+/egouse/outputs/
+/egouse/runs/
+/egouse/**/*.pt
+/egouse/**/*.onnx
+/egouse/**/*.safetensors
+/egouse/**/*.npz
+/egouse/**/*.mp4

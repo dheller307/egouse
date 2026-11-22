@@ -1,0 +1,8 @@
+{
+  "student_checkpoint": "/absolute/path/to/matched-candidate/best.pt",
+  "object_checkpoint": "/absolute/path/to/yolo26m-hot3d-expanded/weights/best.pt",
+  "hand_checkpoint": "/absolute/path/to/faster_rcnn_1_8_132028.pth",
+  "hand_repository": "/absolute/path/to/Hand_Object_Detector",
+  "hand_python": "/absolute/path/to/venv_doh/bin/python",
+  "object_python": "/absolute/path/to/venv_yoloe/bin/python"
+}

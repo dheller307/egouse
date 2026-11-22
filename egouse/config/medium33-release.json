@@ -1,0 +1,107 @@
+{
+  "source_commit": "2488904deb3c046b9f7e397c54e7480335419290",
+  "student": {
+    "sha256": "4c54f6fed56652ad23e248bcb7b56c2caa2a56d12f3e315583f30bbabda9a8d4",
+    "epoch_one_based": 20
+  },
+  "training_config_sha256": "3a9b9b4232c97249bfb5fd56e1c64dd556514ac976de651015e19f157ad0488e",
+  "feature_config_sha256": "71ab02cc4d5a3594fd59532935099a1a94731aa53dfa268930a10b375e593e84",
+  "split_sha256": "ee661133788161656eb934a493b572a8900eee2d3e3b6654caf8dce818fc358b",
+  "teacher_cleanup": {
+    "code_sha256": "adfcf5d428cc0dc0923962ef14f619811f24b7aac9328fcd2265c8caad463373",
+    "parameters": {
+      "max_gap_sec": 0.12,
+      "min_on_sec": 0.2,
+      "backfill_max_sec": 0.18,
+      "remicro_protected_min_on_sec": 0.18,
+      "lone_short_max_duration_sec": 1.2,
+      "lone_neighbor_min_gap_sec": 3.0,
+      "morph_close_sec": 0.1,
+      "morph_open_sec": 0.35
+    },
+    "implementation": "byte-identical to 72b72c3, historical sparse-row morphology"
+  },
+  "vocabulary": [
+    "birdhouse_toy",
+    "bottle_bbq",
+    "bottle_mustard",
+    "bottle_ranch",
+    "bowl",
+    "can_parmesan",
+    "can_soup",
+    "can_tomato_sauce",
+    "carton_milk",
+    "carton_oj",
+    "cellphone",
+    "coffee_pot",
+    "dino_toy",
+    "dumbbell_5lb",
+    "dvd_remote",
+    "flask",
+    "food_vegetables",
+    "food_waffles",
+    "holder_black",
+    "holder_gray",
+    "keyboard",
+    "mouse",
+    "mug_patterned",
+    "mug_white",
+    "plate_bamboo",
+    "potato_masher",
+    "puzzle_toy",
+    "spatula_red",
+    "spoon_wooden",
+    "vase",
+    "whiteboard_eraser",
+    "whiteboard_marker",
+    "aria_small"
+  ],
+  "hand": {
+    "sha256": "3444e3b992417cb6adfcd71539ca8c92602c21a3e2fdfff4628dbdbdf8a2dd03",
+    "external_commit": "e6eec712a498ec7844b97893c8d012cea1a71e09",
+    "checkpoint_number": 132028,
+    "threshold": 0.5,
+    "schema": "100doh-row-v2"
+  },
+  "feature_schema": "hybrid-v2-offset3-strict-side-seconds",
+  "jpeg_quality": 80,
+  "rotation": "clockwise_90",
+  "threads": 2,
+  "decoder": {
+    "onset": 0.5,
+    "release": 0.45,
+    "clock_gap_ns": 100000000,
+    "independent": true
+  },
+  "object": {
+    "contract": "closed-set-v1",
+    "checkpoint_sha256": "73d9d2b4f995ace1067687d6ac62f3a369c122e054f801b24286579d374395bb",
+    "conf": 0.25,
+    "imgsz": 640
+  },
+  "runtime_versions": {
+    "main": {
+      "python": "3.12.3",
+      "torch": "2.6.0+cu124",
+      "numpy": "1.26.4",
+      "opencv-python": "4.11.0.86",
+      "pandas": "3.0.3",
+      "projectaria-tools": "1.5.6"
+    },
+    "hand": {
+      "python": "3.10.20",
+      "torch": "2.1.0+cu121",
+      "torchvision": "0.16.0+cu121",
+      "numpy": "1.26.4",
+      "opencv-python": "4.11.0.86"
+    },
+    "object": {
+      "python": "3.12.3",
+      "torch": "2.6.0+cu124",
+      "torchvision": "0.21.0+cu124",
+      "numpy": "2.4.4",
+      "opencv-python": "5.0.0.93",
+      "ultralytics": "8.4.102"
+    }
+  }
+}
