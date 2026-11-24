@@ -4,6 +4,8 @@
 
 EgoUse explores a lightweight approach to interaction recognition for future glasses and edge devices. Instead of applying another large visual network to video, it learns from **compact hand–object features using a small GRU**.
 
+**[Watch the EgoUse demo on YouTube](https://youtu.be/pmYqrhCUR8c)**
+
 [![Watch the EgoUse demo](docs/assets/demo_youtube.png)](https://youtu.be/pmYqrhCUR8c)
 
 ## Approach
@@ -21,20 +23,20 @@ The target is **holding, manipulation and strong physical contact**, excluding b
 
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 16, "rankSpacing": 22}, "themeVariables": {"fontSize": "13px"}}}%%
-flowchart TB
-    V["RGB video"] --> H["100DOH hand detector"]
-    V --> ODET["Fine-tuned YOLO26m object detector"]
-    H --> F["18 features per hand–object pair"]
+flowchart LR
+    V["RGB video"] --> H["100DOH<br/>Hand detector"]
+    V --> ODET["Fine-tuned YOLO26m<br/>Object detector"]
+    H --> F["18 features per<br/>hand–object pair"]
     ODET --> F
     F --> G["Shared pairwise GRU"]
-    G --> O["Probabilities + hysteresis"] --> T["Interaction timelines"]
+    G --> O["Probabilities<br/>+ hysteresis"] --> T["Interaction<br/>timelines"]
 
     subgraph TRAIN["Training only"]
-        P["HOT3D poses"] --> A["Geometry Teacher labels"]
-        A --> L["Masked binary cross-entropy"]
+        P["HOT3D poses"] --> A["Geometry Teacher<br/>labels"]
+        A --> L["Masked binary<br/>cross-entropy loss"]
     end
 
-    G -. Logits .-> L
+    G -. Predicted logits .-> L
     L -. Updates GRU weights .-> G
 ```
 
@@ -75,11 +77,11 @@ One shared network processes each hand–object pair, learning how spatial and m
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 12, "rankSpacing": 16}, "themeVariables": {"fontSize": "13px"}}}%%
 flowchart LR
-    F["Pair sequence<br/>18 features / frame"]
-    E["Linear + ReLU<br/>18 → 16"]
-    G["2-layer causal GRU<br/>128 units / layer"]
-    H["Linear head<br/>128 → 1 logit"]
-    P["Sigmoid<br/>Interaction probability"]
+    F["Pair sequence<br/>One hand–object pair<br/>18 features per frame"]
+    E["Linear + ReLU<br/>Project each frame<br/>18 → 16 features"]
+    G["2-layer causal GRU<br/>128 hidden units per layer<br/>Carries pair history"]
+    H["Linear head<br/>128 → 1 logit<br/>One score per frame"]
+    P["Sigmoid<br/>Converts the logit to<br/>interaction probability"]
 
     F --> E --> G --> H --> P
 ```
