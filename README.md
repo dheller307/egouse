@@ -6,7 +6,7 @@ EgoUse explores a lightweight approach to interaction recognition for future gla
 
 **[Watch the EgoUse demo on YouTube](https://youtu.be/pmYqrhCUR8c)**
 
-[![Watch the EgoUse demo](docs/assets/demo_youtube.png)](https://youtu.be/pmYqrhCUR8c)
+[![Watch the EgoUse demo](docs/assets/egouse-demo-timeline-v2.png)](https://youtu.be/pmYqrhCUR8c)
 
 ## Approach
 
