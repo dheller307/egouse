@@ -22,22 +22,25 @@ The **Student** learns from those labels using only RGB-derived detections: hand
 The target is **holding, manipulation and strong physical contact**, excluding brief brushing.
 
 ```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 16, "rankSpacing": 22}, "themeVariables": {"fontSize": "13px"}}}%%
-flowchart LR
+%%{init: {"flowchart": {"nodeSpacing": 28, "rankSpacing": 18, "padding": 8}, "themeVariables": {"fontSize": "16px"}}}%%
+flowchart TB
     V["RGB video"] --> H["100DOH<br/>Hand detector"]
-    V --> ODET["Fine-tuned YOLO26m<br/>Object detector"]
-    H --> F["18 features per<br/>hand–object pair"]
-    ODET --> F
+    V --> D["Fine-tuned YOLO26m<br/>Object detector"]
+    H --> F["18 features per hand–object pair"]
+    D --> F
     F --> G["Shared pairwise GRU"]
-    G --> O["Probabilities<br/>+ hysteresis"] --> T["Interaction<br/>timelines"]
+    G --> T["Probabilities + hysteresis<br/>→ Interaction timelines"]
 
     subgraph TRAIN["Training only"]
-        P["HOT3D poses"] --> A["Geometry Teacher<br/>labels"]
+        P["HOT3D poses"] --> A["Geometry Teacher labels"]
         A --> L["Masked binary<br/>cross-entropy loss"]
+        L == Backpropagation ==> U["Update shared GRU weights"]
     end
 
     G -. Predicted logits .-> L
-    L -. Updates GRU weights .-> G
+
+    linkStyle 8 stroke:#23986e,stroke-width:3px
+    linkStyle 9 stroke:#438de0,stroke-width:2px,stroke-dasharray:6 4
 ```
 
 The Teacher supervises training through the loss. It is not part of the inference path.
