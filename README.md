@@ -22,25 +22,25 @@ The **Student** learns from those labels using only RGB-derived detections: hand
 The target is **holding, manipulation and strong physical contact**, excluding brief brushing.
 
 ```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 28, "rankSpacing": 18, "padding": 8}, "themeVariables": {"fontSize": "16px"}}}%%
-flowchart TB
-    V["RGB video"] --> H["100DOH<br/>Hand detector"]
-    V --> D["Fine-tuned YOLO26m<br/>Object detector"]
-    H --> F["18 features per hand–object pair"]
+%%{init: {"flowchart": {"nodeSpacing": 49, "rankSpacing": 15, "padding": 8}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+    V["RGB<br/>video"] --> H["100DOH<br/>Hand detector"]
+    V --> D["Fine-tuned<br/>YOLO26m<br/>Object detector"]
+    H --> F["18 features per<br/>hand–object pair"]
     D --> F
-    F --> G["Shared pairwise GRU"]
-    G --> T["Probabilities + hysteresis<br/>→ Interaction timelines"]
+    F --> G["Shared<br/>pairwise GRU"]
+    G --> T["Probabilities<br/>+ hysteresis<br/>→ Interaction timelines"]
 
     subgraph TRAIN["Training only"]
-        P["HOT3D poses"] --> A["Geometry Teacher labels"]
+        P["HOT3D<br/>3D poses"] --> A["Geometry<br/>Teacher labels"]
         A --> L["Masked binary<br/>cross-entropy loss"]
-        L == Backpropagation ==> U["Update shared GRU weights"]
     end
 
     G -. Predicted logits .-> L
+    L == Update GRU weights ==> G
 
-    linkStyle 8 stroke:#23986e,stroke-width:3px
-    linkStyle 9 stroke:#438de0,stroke-width:2px,stroke-dasharray:6 4
+    linkStyle 9 stroke:#23986e,stroke-width:3px
+    linkStyle 8 stroke:#438de0,stroke-width:2px,stroke-dasharray:6 4
 ```
 
 The Teacher supervises training through the loss. It is not part of the inference path.
